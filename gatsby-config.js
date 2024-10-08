@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
   siteMetadata: {
     title: `My Builder Site`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://qa-milancorpbuilder.netlify.app/`,
   },
   plugins: [
     {
