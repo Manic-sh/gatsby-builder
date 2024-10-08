@@ -1,0 +1,32 @@
+// src/templates/page.jsx
+import * as React from 'react';
+import { graphql } from 'gatsby';
+import { builder, BuilderComponent } from '@builder.io/react';
+
+// Initialize the Builder SDK with your organization's API Key
+// Find the API Key on: https://builder.io/account/settings
+builder.init('0f9e8947659247f9a7ae2506f4375e34')
+
+// Your template populates your Gatsby pages with your Builder page content.
+function PageTemplate({ data }) {
+  const models = data?.allBuilderModels;
+  const page = models.onePage?.content;
+
+  return <BuilderComponent model="page" content={page} />;
+}
+
+export default PageTemplate;
+
+// pageQuery is a GraphQL query that 
+// fetches each page's content from Builder. 
+// Your content is rendered within the 
+// PageTemplate using BuilderComponent, provided by Builder's SDK.
+export const pageQuery = graphql`
+  query ($path: String!) {
+    allBuilderModels {
+      onePage(target: { urlPath: $path }) {
+        content
+      }
+    }
+  }
+`;
