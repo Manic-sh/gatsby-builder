@@ -40,7 +40,7 @@ function PageTemplate({ data }) {
       }
     }
     fetchBuilderContent();
-  }, [window.location.pathname]);
+  }, []);
 
   console.log({ content, notFound });
 
