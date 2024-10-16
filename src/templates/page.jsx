@@ -1,8 +1,9 @@
 // src/templates/page.jsx
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import { builder, BuilderComponent } from '@builder.io/react';
+import { Builder, builder, BuilderComponent } from '@builder.io/react';
 import config from '../config';
+import { NotFoundPage } from '../pages/404';
 
 // Initialize the Builder SDK with your organization's API Key
 // Find the API Key on: https://builder.io/account/settings
@@ -13,7 +14,15 @@ function PageTemplate({ data }) {
   const models = data?.allBuilderModels;
   const page = models.onePage?.content;
 
-  return <BuilderComponent model='page' content={page} />;
+  if (!Builder.isEditing && !Builder.isPreviewing && !page) {
+    return <NotFoundPage />;
+  } else {
+    return (
+      <div className='hero py-0'>
+        <BuilderComponent model='page' content={page} />;
+      </div>
+    );
+  }
 }
 
 export default PageTemplate;
@@ -25,7 +34,7 @@ export default PageTemplate;
 export const pageQuery = graphql`
   query ($path: String!) {
     allBuilderModels {
-      onePage(target: { urlPath: $path }) {
+      onePage(target: { urlPath: $path }, options: { cachebust: true }) {
         content
       }
     }
