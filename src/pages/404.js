@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
+import { Builder, BuilderComponent } from '@builder.io/react';
 
 const pageStyles = {
   color: '#232129',
@@ -24,6 +25,9 @@ const codeStyles = {
 };
 
 export const NotFoundPage = () => {
+  if (Builder.isPreviewing || Builder.isEditing) {
+    return <BuilderComponent model='page' />;
+  }
   return (
     <main style={pageStyles}>
       <h1 style={headingStyles}>Page not found</h1>
