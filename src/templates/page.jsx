@@ -54,15 +54,11 @@ function PageTemplate({ data }) {
   //   );
   // }
 
-  if (notFound) {
-    return <NotFoundPage />;
-  } else {
-    return (
-      <div className='hero py-0'>
-        <BuilderComponent model='page' content={content} />
-      </div>
-    );
-  }
+  return (
+    <div className='hero py-0'>
+      <BuilderComponent model='page' content={content} />
+    </div>
+  );
 }
 
 export default PageTemplate;
