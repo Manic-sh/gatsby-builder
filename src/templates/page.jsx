@@ -3,7 +3,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { Builder, builder, BuilderComponent } from '@builder.io/react';
 import config from '../config';
-import { NotFoundPage } from '../pages/404';
+import NotFoundPage from '../pages/404';
 
 // Initialize the Builder SDK with your organization's API Key
 // Find the API Key on: https://builder.io/account/settings
