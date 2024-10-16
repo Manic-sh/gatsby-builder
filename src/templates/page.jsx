@@ -19,7 +19,7 @@ function PageTemplate({ data }) {
   } else {
     return (
       <div className='hero py-0'>
-        <BuilderComponent model='page' content={page} />;
+        <BuilderComponent model='page' content={page} />
       </div>
     );
   }
