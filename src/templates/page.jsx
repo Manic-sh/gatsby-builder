@@ -14,51 +14,51 @@ function PageTemplate({ data }) {
   const models = data?.allBuilderModels;
   const page = models.onePage?.content;
 
-  const [content, setContent] = React.useState(page);
-  const [notFound, setNotFound] = React.useState(!page);
+  // const [content, setContent] = React.useState(page);
+  // const [notFound, setNotFound] = React.useState(!page);
 
-  React.useEffect(() => {
-    async function fetchBuilderContent() {
-      if (typeof window !== 'undefined') {
-        const content = await builder
-          .get('page', {
-            url: window.location.pathname,
-          })
-          .promise();
+  // React.useEffect(() => {
+  //   async function fetchBuilderContent() {
+  //     if (typeof window !== 'undefined') {
+  //       const content = await builder
+  //         .get('page', {
+  //           url: window.location.pathname,
+  //         })
+  //         .promise();
 
-        if (content) {
-          // Update the page content if it's not already set
-          setContent(content);
-          setNotFound(!content);
+  //       if (content) {
+  //         // Update the page content if it's not already set
+  //         setContent(content);
+  //         setNotFound(!content);
 
-          // if the page title is found,
-          // set the document title to the page title
-          if (content?.data.title) {
-            document.title = content.data.title;
-          }
-        }
-      }
-    }
-    fetchBuilderContent();
-  }, []);
+  //         // if the page title is found,
+  //         // set the document title to the page title
+  //         if (content?.data.title) {
+  //           document.title = content.data.title;
+  //         }
+  //       }
+  //     }
+  //   }
+  //   fetchBuilderContent();
+  // }, []);
 
-  console.log({ content, notFound });
+  // console.log({ content, notFound });
 
-  // if (!Builder.isEditing && !Builder.isPreviewing && !page) {
-  //   return <NotFoundPage />;
-  // } else {
-  //   return (
-  //     <div className='hero py-0'>
-  //       <BuilderComponent model='page' content={page} />
-  //     </div>
-  //   );
-  // }
+  if (!Builder.isEditing && !Builder.isPreviewing && !page) {
+    return <NotFoundPage />;
+  } else {
+    return (
+      <div className='hero py-0'>
+        <BuilderComponent model='page' content={page} />
+      </div>
+    );
+  }
 
-  return (
-    <div className='hero py-0'>
-      <BuilderComponent model='page' content={content} />
-    </div>
-  );
+  // return (
+  //   <div className='hero py-0'>
+  //     <BuilderComponent model='page' content={page} />
+  //   </div>
+  // );
 }
 
 export default PageTemplate;
