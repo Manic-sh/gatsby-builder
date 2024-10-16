@@ -19,21 +19,23 @@ function PageTemplate({ data }) {
 
   React.useEffect(() => {
     async function fetchBuilderContent() {
-      const content = await builder
-        .get('page', {
-          url: window.location.pathname,
-        })
-        .promise();
+      if (typeof window !== 'undefined') {
+        const content = await builder
+          .get('page', {
+            url: window.location.pathname,
+          })
+          .promise();
 
-      if (content) {
-        // Update the page content if it's not already set
-        setContent(content);
-        setNotFound(!content);
+        if (content) {
+          // Update the page content if it's not already set
+          setContent(content);
+          setNotFound(!content);
 
-        // if the page title is found,
-        // set the document title to the page title
-        if (content?.data.title) {
-          document.title = content.data.title;
+          // if the page title is found,
+          // set the document title to the page title
+          if (content?.data.title) {
+            document.title = content.data.title;
+          }
         }
       }
     }
