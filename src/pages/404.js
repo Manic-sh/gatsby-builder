@@ -41,9 +41,9 @@ const NotFoundPage = () => {
         }
       }}
     >
-      <div className='loading'>
+      {/* <div className='loading'>
         No matching page generated, checking Builder.io ...
-      </div>
+      </div> */}
     </BuilderComponent>
   );
 };
