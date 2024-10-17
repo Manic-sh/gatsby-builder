@@ -21,5 +21,6 @@ Builder.registerComponent(Divider, {
       defaultValue: 'This is a Custom Divider Component',
       required: true,
       showIf: 'true',
+    },
   ],
 });
