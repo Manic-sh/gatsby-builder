@@ -1,0 +1,13 @@
+.divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+    background-color: brown;
+}
+
+.divider > p {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
