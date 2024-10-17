@@ -1,8 +1,13 @@
 const path = require('path');
-const config = require('./src/config');
+
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+
 module.exports = {
   siteMetadata: {
     title: `My Builder Site`,
@@ -13,7 +18,7 @@ module.exports = {
       resolve: '@builder.io/gatsby',
       options: {
         // Replace with your Public API Key
-        publicAPIKey: config.builderAPIKey,
+        publicAPIKey: process.env.GATSBY_BUILDER_IO,
         templates: {
           // Render every `page` model as a new page using the
           // src/templates/builderPage.jsx template based on the URL provided in Builder.io

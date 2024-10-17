@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
-import { Builder, BuilderComponent } from '@builder.io/react';
+import builder, { BuilderComponent } from '@builder.io/react';
+import config from '../config';
 
 const pageStyles = {
   color: '#232129',
@@ -24,10 +25,31 @@ const codeStyles = {
   borderRadius: 4,
 };
 
-export const NotFoundPage = () => {
-  if (Builder.isPreviewing || Builder.isEditing) {
-    return <BuilderComponent model='page' />;
-  }
+builder.init(config.builderAPIKey);
+
+const NotFoundPage = () => {
+  const [notFound, setNotFound] = React.useState(false);
+  // modelName is page by default
+  return notFound ? (
+    <NotFound /> // Your 404 content
+  ) : (
+    <BuilderComponent
+      model='page'
+      contentLoaded={(content) => {
+        if (!content) {
+          setNotFound(true);
+        }
+      }}
+    >
+      <div className='loading'>
+        No matching page generated, checking Builder.io ...
+      </div>
+    </BuilderComponent>
+  );
+};
+export default NotFoundPage;
+
+export const NotFound = () => {
   return (
     <main style={pageStyles}>
       <h1 style={headingStyles}>Page not found</h1>
@@ -48,6 +70,6 @@ export const NotFoundPage = () => {
   );
 };
 
-export default NotFoundPage;
+// export default NotFoundPage;
 
 export const Head = () => <title>Not found</title>;
