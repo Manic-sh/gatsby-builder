@@ -27,6 +27,8 @@ const codeStyles = {
 
 builder.init(config.builderAPIKey);
 
+console.log("config.builderAPIKey", config.builderAPIKey);
+
 const NotFoundPage = () => {
   const [notFound, setNotFound] = React.useState(false);
   // modelName is page by default
