@@ -16,9 +16,6 @@ builder.init(config.builderAPIKey);
 // Your template populates your Gatsby pages with your Builder page content.
 function PageTemplate({ data }) {
 
-
-
-  
   const models = data?.allBuilderModels;
   const page = models.onePage?.content;
 
