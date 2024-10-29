@@ -18,7 +18,7 @@ module.exports = {
       resolve: '@builder.io/gatsby',
       options: {
         // Replace with your Public API Key
-        publicAPIKey: process.env.GATSBY_BUILDER_IO,
+        publicAPIKey: "0f9e8947659247f9a7ae2506f4375e34",
         useCache: false,
         templates: {
           // Render every `page` model as a new page using the

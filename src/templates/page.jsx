@@ -10,7 +10,7 @@ import  '../components/divider/divider';
 
 // Initialize the Builder SDK with your organization's API Key
 // Find the API Key on: https://builder.io/account/settings
-builder.init(config.builderAPIKey);
+builder.init("0f9e8947659247f9a7ae2506f4375e34");
 
 
 // Your template populates your Gatsby pages with your Builder page content.
