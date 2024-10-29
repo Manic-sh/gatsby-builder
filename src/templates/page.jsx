@@ -4,6 +4,8 @@ import { graphql } from 'gatsby';
 import { Builder, builder, BuilderComponent } from '@builder.io/react';
 import config from '../config';
 import NotFoundPage from '../pages/404';
+
+import Divider from '../components/divider/divider';
 import  '../components/divider/divider';
 
 // Initialize the Builder SDK with your organization's API Key
@@ -13,6 +15,9 @@ builder.init(config.builderAPIKey);
 
 // Your template populates your Gatsby pages with your Builder page content.
 function PageTemplate({ data }) {
+
+
+
   
   const models = data?.allBuilderModels;
   const page = models.onePage?.content;
