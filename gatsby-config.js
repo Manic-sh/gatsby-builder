@@ -19,6 +19,7 @@ module.exports = {
       options: {
         // Replace with your Public API Key
         publicAPIKey: process.env.GATSBY_BUILDER_IO,
+        useCache: false,
         templates: {
           // Render every `page` model as a new page using the
           // src/templates/builderPage.jsx template based on the URL provided in Builder.io
